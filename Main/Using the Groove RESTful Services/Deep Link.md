@@ -65,7 +65,7 @@ Following are two code samples that demonstrate how:
 
 ###Windows Store application
 
-```
+```xml
  // In your xaml code, create a hidden WebView.
 <WebView x:Name="HiddenWebView" Visibility="Collapsed" />
 
@@ -78,7 +78,7 @@ HiddenWebView.Source = new Uri(xboxMusicRedirectLink);
 ``` 
 
 ###Windows Phone application
-```
+```xml
  // In your xaml code, create a hidden WebBrowser control
 <phone:WebBrowser x:Name="HiddenWebBrowser" />
 
