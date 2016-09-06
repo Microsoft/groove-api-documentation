@@ -39,3 +39,4 @@ Please visit <http://go.microsoft.com/fwlink/p/?LinkID=396801> if you are intere
 [Deep Link]: Deep%20Link.md
 [Badges]: Badges.md
 [Image Service]: Image%20Service.md
+refs/remotes/origin/live:Main/Using the Groove RESTful Services/Guidelines.md

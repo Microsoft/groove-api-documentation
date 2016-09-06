@@ -1,22 +1,35 @@
-#User Authentication (to be updated with new auth)
-User authentication is restricted to developers who are part of the pilot program. To onboard with the Groove API Pilot Program, follow the instructions described [here](http://go.microsoft.com/fwlink/p/?LinkId=396801).
+# Groove User Authentication
 
-# Authentication to oneDrive service - to be used as draft?  
-
-==============================================================================
-# Groove users authentication 
-
-To use the authenticated API, you need to have an access token that authenticates
+To use the user-authenticated APIs, you need to have an access token that authenticates
 your app to a particular set of permissions for a user. In this section, you'll learn how to:
 
 1. Sign your user in to Groove with the specified [scopes](#authentication-scopes) using the token flow or code flow.
 2. Sign the user out (optional).
 
-The OneDrive API uses the standard [OAuth 2.0](http://oauth.net/2/) authentication scheme to authenticate users and generate access tokens. You must provide an access token for every API call via one of the following.
+The Groove API uses the standard [OAuth 2.0](http://oauth.net/2/) authentication scheme to authenticate users and generate access tokens. You must provide an access token for every user-authenticated API call via the following header:
 
-* An HTTP header: `Authorization: bearer {token}`
+* `Authorization: Bearer {token}`
+
+Note that you'll still need to provide a [developer access token](Obtaining a Developer Access Token.md) in the *accessToken* query parameter.
+
+## Register a Microsoft Account application
+
+To register your app to connect with Groove, you'll need a Microsoft account.
+
+1. Go to the [Microsoft Application Registration Portal](https://account.live.com/developers/applications)
+2. When prompted, sign in with your Microsoft account credentials.
+3. Find My applications and click Add an app.
+4. Enter your app's name and click Create application.
+5. Scroll to the bottom of the page and check the Live SDK support box.
+
+After you've completed these steps, an application ID and application secret are created for your app and displayed on your new app's properties page.
+
+**Important** Treat the value of client secret the same as you would a user's password. The secret represents the key to your application and, if made available, can be used to impersonate your application.
+
+Under the Platforms header, configure details about your app. By default a new app is created as a web app and needs one or more redirect URIs. To enable native client flows for your app as well, click the Add Platform button and choose Mobile.
 
 ## Sign users in
+
 Your app must initiate the sign-in process by contacting the
 Microsoft account authorization web service with a specified scope, and receive
 an access token. The flow follows standard OAuth 2.0 authentication flows and
@@ -25,22 +38,18 @@ requires calls from a web browser or web-browser control.
 ## Authentication scopes
 
 Scopes determine what type of access the app is granted when the user is signed
-in. All scopes support single sign-on on the web, which means that if a user is
-already signed in to OneDrive, then the user can skip the authentication flow
-and go straight to the authorization flow.
+in.
 
 
 | Scope name         | Description                                                                                                                                                                                                                   | Required |
 |:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------|
+| MicrosoftMediaServices.GrooveApiAccess  | Grants read and write permission to a user's music collection and playlists along with other user-authenticated scenarios.                                                                                                                       | Yes      |
 | offline_access     | Enables your app to work offline even when the user isn't active. This provides your app with a refresh_token that can be used to generate additional access tokens as necessary. This scope is not available for token flow. | No       |
-| onedrive.readonly  | Grants read-only permission to all of a user's OneDrive files, including files shared with the user.                                                                                                                          | Yes      |
-| onedrive.readwrite | Grants read and write permission to all of a user's OneDrive files, including files shared with the user. To create sharing links, this scope is required.                                                                    | Yes      |
-| onedrive.appfolder | Grants read and write permissions to a specific folder for your application.                                                                                                                                                  | Yes      |
 
 As an example, a typical application might request the following scopes:
 
 ```
-onedrive.readwrite offline_access
+MicrosoftMediaServices.GrooveApiAccess offline_access
 ```
 
 ## Supported Authentication flows
@@ -52,11 +61,11 @@ There are two supported authentication flows to choose from:
 
 ## Token flow
 The easiest authentication flow is the token flow. This flow is useful for quickly
-obtaining an access token to use the OneDrive API in an interactive fashion. This flow
+obtaining an access token to use the Groove API in an interactive fashion. This flow
 does not provide a refresh token, so it can't be used for long term access to the
-OneDrive API.
+Groove API.
 
-![Token Flow Diagram](../site-images/implicit_grant_flow.png)
+![Token Flow Diagram](/Main/site-images/msa-implicit-grant-flow.PNG)
 
 To start the sign-in process with the token flow, use a web browser or web-browser
 control to load a URL request.
@@ -84,25 +93,23 @@ will be redirected to your redirect URL with additional parameters added to the 
 ```
 https://login.live.com/oauth20_authorize.srf#access_token=EwC...EB
   &authentication_token=eyJ...3EM&token_type=bearer&expires_in=3600
-  &scope=onedrive.readwrite&user_id=3626...1d
+  &scope=MicrosoftMediaServices.GrooveApiAccess&user_id=3626...1d
 ```
 
 Values for `access_token`, `authentication_token`, and `user_id` are truncated
 in the previous example. The values for `access_token` and `authentication_token`
 are quite long.
 
-You can use the value of `access_token` to make requests to the OneDrive API.
+You can use the value of `access_token` to make requests to the Groove API.
 
 ## Code flow
 
 The code flow for authentication is a three-step process with separate calls to authenticate and authorize
-the application and to generate an access token to use the OneDrive API. This also
+the application and to generate an access token to use the Groove API. This also
 allows your application to receive a refresh token that will enable long-term
 use of the API in some scenarios, to allow access when the user isn't actively using your application.
 
-
-![Authorization Code Flow Diagram](../site-images/authorization_code_flow.png)
-
+![Authorization Code Flow Diagram](/Main/site-images/msa-authorization-code-flow.PNG)
 
 ### Step 1. Get an authorization code
 To start the sign-in process with the code flow, use a web browser or web-browser
@@ -132,7 +139,7 @@ https://login.live.com/oauth20_authorize.srf?code=df6aa589-1080-b241-b410-c4dff6
 
 ### Step 2. Redeem the code for access tokens
 After you have received the `code` value, you can redeem this code for a set of
-tokens that allow you to authenticate with the OneDrive API. To redeem the code, make the following request:
+tokens that allow you to authenticate with the Groove API. To redeem the code, make the following request:
 
 ```
 POST https://login.live.com/oauth20_token.srf
@@ -159,21 +166,20 @@ domain portion of the redirect URI that you specified in the
 #### Response
 If the call is successful, the response for the POST request contains a JSON string
 that includes several properties, including `access_token`, `token_type`, and
-`refresh_token` (if you requested the **wl.offline_access** scope).
+`refresh_token` (if you requested the **offline_access** scope).
 
-<!-- {"blockType": "resource", "@odata.type": "oauth2.tokenResponse", "optionalProperties": ["token_type", "scope"] } -->
 ```json
 {
   "token_type":"bearer",
   "expires_in": 3600,
-  "scope":"wl.basic onedrive.readwrite",
+  "scope":"offline_access MicrosoftMediaServices.GrooveApiAccess",
   "access_token":"EwCo...AA==",
   "refresh_token":"eyJh...9323"
 }
 ```
 
 You can now store and use the `access_token` provided to make authenticated
-requests to the OneDrive API.
+requests to the Groove API.
 
 **Important:** Treat the values of `access_token` and `refresh_token` in this response as securely as you would a user's password.
 
@@ -183,7 +189,7 @@ by using the refresh token (if available), or by repeating the authentication
 request from the beginning.
 
 ### Step 3. Get a new access token or refresh token
-If your app has requested access to **wl.offline_access** this step will
+If your app has requested access to **offline_access** this step will
 return a **refresh_token** that can be used to generate additional access
 tokens after the initial token has expired.
 
@@ -214,21 +220,20 @@ domain portion of the redirect URI that you specified in the
 #### Response
 If the call is successful, the response for the POST request contains a JSON string
 that includes several properties including `access_token`, `authentication_token` and
-`refresh_token` if you requested the **wl.offline_access** scope.
+`refresh_token` if you requested the **offline_access** scope.
 
-<!-- {"blockType": "example", "@odata.type": "oauth2.tokenResponse", "name": "oauth-response-example" } -->
 ```json
 {
   "token_type":"bearer",
   "expires_in": 3600,
-  "scope": "wl.basic onedrive.readwrite wl.offline_access",
+  "scope": "MicrosoftMediaServices.GrooveApiAccess offline_access",
   "access_token":"EwCo...AA==",
   "refresh_token":"eyJh...9323"
 }
 ```
 
 You can now store and use the `access_token` to make authenticated
-requests to the OneDrive API.
+requests to the Groove API.
 
 **Important:** Treat the values of `access_token` and `refresh_token` in this
 response as securely as you would a user's password.
@@ -266,12 +271,10 @@ After removing the cookie, the browser will be redirected to the redirect URL
 you provided. When the browser loads your redirect page, no authentication query
 string parameters will be set, and you can infer the user has been logged out.
 
-
 ## Revoking Access
 
 Users can revoke an app's access to their account by visiting the
 [Microsoft account manage consent](https://account.live.com/consent/Manage) page.
-
 
 When consent for your app is revoked, any refresh token previously provided to your application
 will no longer be valid. You will need to repeat the authentication flow to
@@ -309,16 +312,6 @@ redirect to your redirect_uri and include the same error parameters.
 ## Related topics
 
 The following topics contain high-level overviews of other concepts that apply
-to the OneDrive API.
+to the Groove API.
 
 * [Develop with the Groove API](../Groove service.md)
-
-<!-- {
-  "type": "#page.annotation",
-  "description": "Learn how to authenticate your app with Microsoft Account and get access to OneDrive",
-  "keywords": "authentication,oauth,microsoft account,msa,onedrive,api",
-  "section": "documentation",
-  "footerAdditions": [
-    "<script type=\"text/javascript\" src=\"get-token.js\"></script>",
-    "<script type=\"text/javascript\">tokenFetcher.addToPage(\"register-your-app\");</script>"]
-} -->
