@@ -110,7 +110,7 @@ Content-Type: application/json
 ###Add an invalid track to a playlist
 
 
-If you add an invalid track to a playlist, you'll receive a non-null [Error](Error.md) field at the sub-operation level, and an Error at the top-level saying that some sub-operations failed. You must parse the sub-operations to determine the failure.
+If you add an invalid track to a playlist, you'll receive a non-null [Error](JSON_Error.md) field at the sub-operation level, and an Error at the top-level saying that some sub-operations failed. You must parse the sub-operations to determine the failure.
 
 In this example, we try to add a random GUID as a track ID to a playlist.
 

@@ -40,6 +40,6 @@ The ContentItem object has the following specification.
 ##See also
 
 
-#### Parent
+#### Parent  
 
-[Groove Service REST Reference](Groove%20Service%20REST%20Reference.md)
+[Groove Service REST Reference](Groove Service REST Reference.md)

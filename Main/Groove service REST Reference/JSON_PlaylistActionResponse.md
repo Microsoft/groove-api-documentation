@@ -35,7 +35,7 @@ The PlaylistActionResponse object has the following specification.
 
 #### Parent
 
-[Groove Service REST Reference](Groove%20Service%20REST$20Reference.md)
+[Groove Service REST Reference](Groove Service REST Reference.md)
 
 #### Reference
 

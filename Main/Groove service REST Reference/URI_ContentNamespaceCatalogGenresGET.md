@@ -13,7 +13,7 @@ The BrowseGenres request is composed of mandatory and optional URL parts and que
 ```
 /1/content/{namespace}/catalog/genres?language={language}&country={country}&accessToken={accessToken}
 ```
-For parameters common to every Groove RESTful API, see [Parameters common to every Groove RESTful API](Common Parameters.md). For a table of error codes, see [Error (JSON)](JSON_Error.md). For HTTP status codes, see [Groove RESTful API HTTP Status Codes](HTTPStatusCodes.md).
+For parameters common to every Groove RESTful API, see [Parameters common to every Groove RESTful API](CommonParameters.md). For a table of error codes, see [Error (JSON)](JSON_Error.md). For HTTP status codes, see [Groove RESTful API HTTP Status Codes](HTTPStatusCodes.md).
 
 ##Response object
 

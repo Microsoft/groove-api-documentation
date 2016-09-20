@@ -15,11 +15,13 @@ Request streaming.
 
 The full streaming request is composed of mandatory and optional URL parts and query parameters. A streaming request containing all parameters would resemble the following string:
 
+```
 /1/content/{id}/stream?clientInstanceId={clientInstanceId} &contentType={contentType}&accessToken={accessToken}
+```
 
 For parameters common to every Groove RESTful API, see [Parameters common to every Groove RESTful API](CommonParameters.md). For a table of error codes, see [Error (JSON)](JSON_Error.md). For HTTP status codes, see [Groove RESTful API HTTP Status Codes](HTTPStatusCodes.md).
 
-Please make sure your usage of the streaming API follows the [guidelines](guidelines.md).
+Please make sure your usage of the streaming API follows the [guidelines](../Using the Groove RESTful Services/Guidelines.md).
 
 For playing streams from your application on windows versions prior to Windows 10, you can use the [Microsoft HLS SDK](http://github.com/MicrosoftDX/MicrosoftHLSSDK).
 

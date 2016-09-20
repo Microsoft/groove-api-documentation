@@ -166,7 +166,8 @@ GET /1/content/music.833FB507-0100-11DB-89CA-0019B92A3933/lookup?
 
 continuationToken=AXHsdfMACQQIAAcCB7U_gwAB2xGJygAZuSo5MwEAAjI1
 
-&accessToken=Bearer+../Using the Groove RESTful Services``` 
+&accessToken=Bearer+../Using the Groove RESTful Services
+``` 
 ###Continuation response (contains the rest of the tracks)
 
 ```json
@@ -524,7 +525,8 @@ GET /1/content/music/search?continuationToken=AYdrKUUZQAAHAANib2IBAAIyNQ
 &accessToken=Bearer+[...]
 ```
 ## Continuation response (artists only)
-```json
+```json  
+
 {
   "Artists": {
     "Items": [
@@ -574,4 +576,4 @@ GET /1/content/music/search?continuationToken=AYdrKUUZQAAHAANib2IBAAIyNQ
 
 #### Parent
 
-[Groove Service REST Reference](Groove%20Service%20REST%20Reference.md)
+[Groove Service REST Reference](Groove Service REST Reference.md)
