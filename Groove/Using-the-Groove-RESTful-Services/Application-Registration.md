@@ -45,7 +45,7 @@ The request consists of a form encoded POST call to
 https://login.live.com/access.srf with parameters:
 
 | Parameter name  | Value  | Description                                                                              |
-|:---------------:|:------:|:----------------------------------------------------------------------------------------:|
+|:---------------:|:------:|:-----------------------------------------------------------------------------------------|
 | *grant_type*    | string | Use "client" as value for application token authentication. |
 | *client_id*     | string | Your Application ID as displayed on your application page on the [Microsoft Application Registration Portal](https://account.live.com/developers/applications) |
 | *client_secret* | string | Your Application Secret as displayed on your application page on the [Microsoft Application Registration Portal](https://account.live.com/developers/applications). The value needs to be URL encoded. |
