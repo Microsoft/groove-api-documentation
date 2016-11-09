@@ -110,6 +110,6 @@ Using curl:
 
 Using wget:
 ```
-% wget https://login.live.com/accesstoken.srf --post-data "grant_type=client_credentials&client_id={APP ID HERE...}&client_secret={CLIENT SECRET HERE...}&scope=app.music.dnet.xboxlive.com" -q -O -
+% wget https://login.live.com/accesstoken.srf --post-data "grant_type=client_credentials&client_id={APP ID HERE...}&client_secret={CLIENT SECRET HERE...}&scope=app.music.xboxlive.com" -q -O -
 {"token_type":"bearer","access_token":"Eg...","expires_in":86400}
 ```
