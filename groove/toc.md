@@ -22,6 +22,7 @@
 # [Affiliate Program](http://aka.ms/MicrosoftAffiliates)
 # [Groove service REST Reference](groove-service-rest-reference/overview.md)
 ## JSON objects
+###[Activity (JSON)](Groove-service-REST-Reference/JSON-activity.md)
 ###[Album (JSON)](Groove-service-REST-Reference/JSON-Album.md)
 ###[Artist (JSON)](Groove-service-REST-Reference/JSON-Artist.md)
 ###[CollectionState (JSON)](Groove-service-REST-Reference/JSON-CollectionState.md)
@@ -29,6 +30,7 @@
 ###[ContentResponse (JSON)](Groove-service-REST-Reference/JSON-ContentResponse.md)
 ###[Contributor (JSON)](Groove-service-REST-Reference/JSON-Contributor.md)
 ###[Error (JSON)](Groove-service-REST-Reference/JSON-Error.md)
+###[Mood (JSON)](Groove-service-REST-Reference/JSON-mood.md)
 ###[PaginatedList (JSON)](Groove-service-REST-Reference/JSON-PaginatedList.md)
 ###[Playlist (JSON)](Groove-service-REST-Reference/JSON-Playlist.md)
 ###[PlaylistAction (JSON)](Groove-service-REST-Reference/JSON-PlaylistAction.md)
@@ -45,7 +47,9 @@
 ## Endpoints
 ###[Browse the catalog](Groove-service-REST-Reference/uri-browse-catalog.md)
 ###[Browse sub-items of a catalog item](Groove-service-REST-Reference/uri-browse-sub-items.md)
-###[Get genres](Groove-service-REST-Reference/uri-get-genres.md) 
+###[Get genres](Groove-service-REST-Reference/uri-get-genres.md)
+###[Get moods](Groove-service-REST-Reference/uri-get-moods.md) 
+###[Get activities](Groove-service-REST-Reference/uri-get-activities.md) 
 ###[Add track to a user's collection](Groove-service-REST-Reference/uri-add-track-collection.md)
 ###[Delete track from a user's collection](Groove-service-REST-Reference/uri-delete-track-collection.md)
 ###[Create a playlist](Groove-service-REST-Reference/uri-create-playlist.md)
