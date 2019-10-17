@@ -41,7 +41,7 @@ To register your app to connect with Groove, you'll need a Microsoft account.
 2. When prompted, sign in with your Microsoft account credentials.
 3. Find My applications and click Add an app.
 4. Enter your app's name and click Create application.
-5. Create a password (aka client sercret) for your aplication, it will be used to generate auth tokens.
+5. Create a password (aka client sercret) for your application, it will be used to generate auth tokens.
 6. Scroll to the bottom of the page and check the Live SDK support box.
 
 After you've completed these steps, an application ID is created for your app and displayed on your new app's properties page.
