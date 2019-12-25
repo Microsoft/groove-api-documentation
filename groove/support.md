@@ -10,7 +10,7 @@ ms.assetid: 694fef27-e0b3-c590-4ff8-5293524e78ac
 
 # Support
 First, please check that your question is not already answered in the [FAQ](FAQ.md). 
-Then please adress your question on [StackOverflow](http://stackoverflow.com/questions/ask/advice?) or directly through Github.
+Then please address your question on [StackOverflow](http://stackoverflow.com/questions/ask/advice?) or directly through GitHub.
 If you don't get an answer, you may get technical support from ``` xboxmusicdevapi@microsoft.com```. 
 
 If your project does not fall under our current Terms of Use (including but not limited to commercial use, making Groove Music services accessible on a new device, creating a game or syncing the music with other media), please contact us to enter into a business conversation at  ```groovepartners [@] microsoft.com```. 
