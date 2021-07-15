@@ -1,0 +1,111 @@
+### YamlMime:FAQ
+metadata:
+  title: "Frequently asked questions| Groove Services"
+  description: View answers to the most frequently asked questions about developing for the Grove API
+  keywords: groove music, groove api, groove faq
+  author: sakley
+  ms.assetid: efff8209-3f96-786d-0bec-bdd942294238
+    
+title: Frequently asked questions| Groove Services
+summary: |
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          I'm developing a Universal Windows App, I created my app on Apps.dev.microsoft.com and registered it to the Groove API Program but I can't access the API. What am I doing wrong?
+        answer: |
+          When developing a Windows UWA, you need to provision your application from Visual Studio first. Then the Application ID and secret will show up on your (Apps Registration Portal) [https://apps.dev.microsoft.com/#/appList] and you can use it for access to our API from your UWA app.
+          
+      - question: |
+          I have my Application ID and Secret but the authentication fails. What am I doing wrong?  
+        answer: |
+          Subscribe to the Groove API on the Developer Center [here](https://developer.microsoft.com/groove/signup).  
+          Also make sure that all parameter values in your authentication POST request are properly encoded.  
+          
+      - question: |
+          Can I use the same Application ID and Secret for more than one application?
+        answer: |
+          No, you should register an application in the Developer Center for every application or website that will use the Groove API. Every application should use its assigned Application ID and Secret. Also, make sure the details of your application are accurate.
+
+      - question: |
+          How long does the API access token last?
+        answer: |
+          It lasts for 24 hours, so you will need to refresh it before it expires. This can be done asynchronously for better performance within your app or server-side code. The expiration time is given in the response along with the token.
+
+      - question: |
+          Should I actually keep the application Secret secret?
+        answer: |
+          Yes, the Secret provided by the Applications portal should be kept secret. If you're running a website, the recommended implementation is to run the authentication code server side to prevent the secret from being visible in client-side code or on the network.
+
+      - question: |
+          How can I link to Groove from my application or website?
+        answer: |
+          Most of the API calls return a "Link" item in the response. That Link is an HTTP link designed to automatically redirect to the most appropriate Groove application on the target platform. For example, if you're adding a link to a website, and the user is on a Windows 8 machine, the click from Internet Explorer will open the Groove Native application on Windows 10 (with a browser redirection).
+
+      - question: |
+          Can I deep link to the native Groove app Windows, Windows Phone, and related platforms without going through a browser?
+        answer: |
+          No, you currently need to open a browser. See [examples](https://github.com/Microsoft/Groove-API-documentation/blob/master/Using-the-Groove-RESTful-Services/Deep-Link.md).
+          
+      - question:  What is the revenue share of the affiliate program?
+        answer: |
+          Details of the affiliate program can be found [here](http://www.microsoftaffiliates.com/).
+          
+      - question: |
+          Can I become an affiliate without using the APIs? Can I use the API and not become an affiliate?
+        answer: |
+          Yes, the Groove API and affiliation are independent. The API is free to use for everyone, and gives you access to the features of Groove. There is no need to become an affiliate.  
+          
+          If you'd like to earn revenue when linking to Groove from your application, then you should register with the Affiliate program.
+          More details are available [here](http://www.microsoftaffiliates.com/).  
+          
+          You do not need to use the APIs to become a Microsoft affiliate.
+          
+      - question: |
+          Can I put advertising in my application or website if I'm using the data from the API? Can I sell my application?
+        answer: |
+          Please refer to [Guidelines].
+          
+      - question: |
+          Can I cache the content retrieved from the API or save it locally?
+        answer: |
+          Please refer to [Guidelines].
+          
+      - question: |
+          I want to stream music, but I can't because I need to log in a Groove user. What should I do?
+        answer: |
+          Some features of the APIs require that you authenticate a Groove user.
+          Please refer to the [User Authentication] documentation.
+          
+      - question: |
+          I want to access a Groove user's collection, but I can't because I need to log in a Groove user. What should I do?
+        answer: |
+          Some features of the APIs require that you authenticate a Groove user.
+          Please refer to the [User Authentication] documentation.
+          
+      - question: |
+          I'm coding a game. Can I use the Groove API?
+        answer: |
+          Please refer to [Guidelines].
+          
+      - question: |
+          I keep receiving 4xx/5xx HTTP error codes in response to my requests to the API. What am I doing wrong?
+        answer: |
+          Look at the response body. It often contains an [Error](Groove-service-REST-Reference/JSON-Error.md) object with a precise description of the error case.
+          
+      - question: |
+          May I download audio files with my application and provide a download feature to my application users?
+        answer: |
+          No, this is not allowed according to the TOUs of the APIs. The audio may only be provided in the form of streams. This applies to all of your users, even premium users.  
+          
+          Please refer to [Guidelines].
+          
+      - question: |
+          Where did the Pilot program go?
+        answer: |
+          There is no need for a Pilot program anymore. You can integrate Groove in your application without even notifying us!
+          
+          [Guidelines]: Using-the-Groove-RESTful-Services/Guidelines.md
+          [User Authentication]: Using-the-Groove-RESTful-Services/User-Authentication.md
+          

@@ -78,7 +78,7 @@
 ### [orderBy parameter for Catalog and Collection Browse APIs](Groove-service-REST-Reference/OrderBy.md)  
 ### [Groove RESTful API HTTP Status Codes](Groove-service-REST-Reference/HTTP-Status-Codes.md)   
 
-# [FAQ](faq.md)
+# [FAQ](faq.yml)
 # [Groove API TERMS OF USE](Groove-API-Terms-of-Use.md)
 # [Support](Support.md)
 # [Privacy](Privacy.md)

@@ -9,7 +9,7 @@ ms.assetid: 694fef27-e0b3-c590-4ff8-5293524e78ac
 
 
 # Support
-First, please check that your question is not already answered in the [FAQ](FAQ.md). 
+First, please check that your question is not already answered in the [FAQ](FAQ.yml). 
 Then please adress your question on [StackOverflow](http://stackoverflow.com/questions/ask/advice?) or directly through Github.
 If you don't get an answer, you may get technical support from ``` xboxmusicdevapi@microsoft.com```. 
 
