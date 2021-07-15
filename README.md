@@ -19,7 +19,7 @@ The Groove Music API makes it easy for you to connect your app or website to the
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Describes how to work with Groove Music service affiliates.    
 [Groove Service REST Reference](Groove-service-REST-Reference/overview.md)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delivers Groove functionality to third-party application developers    
-[FAQ](FAQ.md)  
+[FAQ](FAQ.yml)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Frequently-Asked Questions about the Groove Music API    
 [Groove API TERMS OF USE](Groove-API-Terms-of-Use.md)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Terms of Use of the Groove Music API    
